@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Notemaster</title>
     <script src="https://unpkg.com/vue"></script>
+    <script src="node_modules/vue-color/dist/vue-color.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="http://davidtkatz.com/public_css/noteMaster.css">
   </head>
@@ -19,13 +20,14 @@
           <div class="form-group">
             <label>Note text</label>
             <textarea class="form-control" v-model="note.text"></textarea>
+            <compact-picker v-model="color" />
           </div>
         </div>
         <button class="btn btn-primary" @click="addNote">Submit</button>
       </div>
       <div class="col-sm-12">
         <div class="col-sm-4 note" v-for="(note, index) in notes">
-          <div class="card">
+          <div class="card" v-bind:style="{ backgroundColor: note.color }">
             <button class="close" @click=deleteNote(index)>&times;</button>
             <div class="card-block">
               <h4 class="card-title">{{note.title}}</h4>
@@ -37,18 +39,26 @@
       </div>
     </div>
     <script type="text/javascript">
+      var compactPicker = VueColor.Compact
       var app = new Vue({
         el: '#app',
+        components: {
+          'compact-picker': compactPicker,
+        },
         data: {
           title: 'Notemaster',
           note: {
             title: '',
             text: ''
           },
+          color: {
+            hex: '#FCDC00'
+          },
           notes: [
             {
               title: 'tried Vue',
               text: 'and being learning',
+              color: '#FCDC00',
               date: new Date(Date.now()).toLocaleString()
             }
           ]
@@ -59,6 +69,7 @@
             this.notes.push({
               text,
               title,
+              color: this.color.hex,
               date: new Date(Date.now()).toLocaleString()
             })
           },
