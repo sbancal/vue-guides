@@ -6,14 +6,15 @@
 
 <script>
 export default {
+  props: ['id'],
   data() {
     return {
       character: {}
     }
   },
   methods: {
-    fetchCharacter() {
-      fetch('http://swapi.co/api/people/1', {
+    fetchCharacter(id) {
+      fetch(`http://swapi.co/api/people/${id}`, {
         method: 'GET'
       })
       .then(response => response.json())
@@ -21,8 +22,7 @@ export default {
     }
   },
   created() {
-    console.log('Created')
-    this.fetchCharacter()
+    this.fetchCharacter(this.id)
   }
 }
 </script>
