@@ -10,3 +10,9 @@ body {
   color: white;
   margin-top: 60px;
 }
+
+.character-card {
+  border: 2px solid rgb(66, 203, 175);
+  border-radius: 4px;
+  cursor: pointer;
+}
