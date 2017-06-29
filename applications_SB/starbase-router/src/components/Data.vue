@@ -3,7 +3,8 @@
     <Item
       v-for="(item, index) in items"
       key="index"
-      :item="item"
+      :passed-item="item"
+      :type="type"
     />
   </div>
 </template>
@@ -29,7 +30,6 @@ export default {
 
       for (let i in initial_ids) {
         let id = initial_ids[i]
-        console.log('id', id)
         fetch(`http://swapi.co/api/${this.type}/${id}`, {
           method: 'GET'
         })
