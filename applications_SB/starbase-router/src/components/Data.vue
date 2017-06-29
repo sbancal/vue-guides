@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="col-md-12">
     <Item
-      v-for="(item, index) in items"
+      v-for="(id, index) in items"
       key="index"
-      :passed-item="item"
+      :initial-id="id"
       :type="type"
     />
   </div>
@@ -25,17 +25,12 @@ export default {
   methods: {
     fetchItems() {
       this.type = this.$route.params.type
-      this.items = []
-      let initial_ids = [1, 13, 14]
-
-      for (let i in initial_ids) {
-        let id = initial_ids[i]
-        fetch(`http://swapi.co/api/${this.type}/${id}`, {
-          method: 'GET'
-        })
-        .then(response => response.json())
-        .then(json => this.items.push(json))
+      if (this.type == 'people'){
+        this.items = [1, 13, 14]
+      } else if (this.type == 'planets'){
+        this.items = [2, 3, 4]
       }
+      // What to do when route is not expected ?
     }
   },
   created() {
