@@ -1,12 +1,16 @@
 <template lang="html">
-  <div id="app">
-    <h3>Starbase router</h3>
-    <router-view/>
+  <div>
+    <p>Type: {{type}}</p>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      type: this.$route.params.type
+    }
+  }
 }
 </script>
 
