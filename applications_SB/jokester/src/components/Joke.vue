@@ -16,4 +16,10 @@ export default {
 </script>
 
 <style lang="css">
+.joke-card {
+  border: 2px solid #2C3350;
+  border-radius: 8px;
+  padding: 5px;
+  margin: 5px;
+}
 </style>
