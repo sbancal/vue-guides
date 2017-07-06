@@ -18,5 +18,7 @@ export default {
   text-align: center;
   color: #2C3350;
   margin-top: 60px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 </style>
