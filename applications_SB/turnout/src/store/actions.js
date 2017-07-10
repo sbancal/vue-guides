@@ -7,3 +7,7 @@ export const signIn = ({commit}, userPayload) => {
 export const signOut = ({commit}) => {
   commit(types.SIGN_OUT)
 }
+
+export const setEvents = ({commit}, eventsPayload) => {
+  commit(types.SET_EVENTS, eventsPayload)
+}
