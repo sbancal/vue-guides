@@ -1,11 +1,15 @@
 <template lang="html">
   <div id="app">
-    <h1>App started</h1>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
+  mounted() {
+    // Default route when launching App
+    this.$router.push('/dashboard')
+  }
 }
 </script>
 
