@@ -6,10 +6,6 @@
 
 <script>
 export default {
-  mounted() {
-    // Default route when launching App
-    this.$router.push('/dashboard')
-  }
 }
 </script>
 
@@ -17,5 +13,7 @@ export default {
 #app {
   text-align: center;
   margin-top: 50px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 </style>

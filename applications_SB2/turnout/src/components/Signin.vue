@@ -1,13 +1,49 @@
 <template lang="html">
   <div class="">
     <h1>Sign In</h1>
-    <router-link to="/dashboard">Go to Dashboard</router-link>
-    <router-link to="/signup">Go to Sign Up</router-link>
+    <div class="form-group">
+      <input
+        type="text"
+        placeholder="email"
+        class="form-control"
+        v-model="email"
+      >
+      <input
+        type="password"
+        placeholder="password"
+        class="form-control"
+        v-model="password"
+      >
+      <button class="btn btn-primary" @click="signIn">Sign In</button>
+    </div>
+    <br>
+    <p>{{error.message}}</p>
+    <br>
+    <router-link to="/signup">Don't have an account yet? Go to Sign Up</router-link>
   </div>
 </template>
 
 <script>
+import { firebaseApp } from '../firebaseApp'
+
 export default {
+  data(){
+    return {
+      email: '',
+      password: '',
+      error: {
+        message: ''
+      }
+    }
+  },
+  methods: {
+    signIn(){
+      firebaseApp.auth().signInWithEmailAndPassword(this.email, this.password)
+      .catch(error => {
+        this.error = error
+      })
+    }
+  }
 }
 </script>
 
