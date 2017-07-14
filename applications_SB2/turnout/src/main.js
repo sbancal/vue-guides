@@ -22,7 +22,9 @@ firebaseApp.auth().onAuthStateChanged(user => {
   if (user) {
     router.push('/dashboard')
   } else {
-    router.replace('/signin')
+    if (router.currentRoute.path !== '/signup'){
+      router.replace('/signin')
+    }
   }
 })
 
