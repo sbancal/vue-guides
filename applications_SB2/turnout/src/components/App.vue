@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div id="app">
     <h1>App started</h1>
   </div>
 </template>
@@ -10,4 +10,8 @@ export default {
 </script>
 
 <style lang="css">
+#app {
+  text-align: center;
+  margin-top: 50px;
+}
 </style>

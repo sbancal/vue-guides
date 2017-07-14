@@ -5,6 +5,7 @@
 ``` bash
 vue init webpack-simple turnout
 cd turnout
+npm install --save bootstrap
 ```
 
 ## Build Setup
