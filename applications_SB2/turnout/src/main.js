@@ -22,8 +22,10 @@ const router = new VueRouter({
 
 firebaseApp.auth().onAuthStateChanged(user => {
   if (user) {
+    store.dispatch('signIn', user)
     router.push('/dashboard')
   } else {
+    store.dispatch('signOut')
     if (router.currentRoute.path !== '/signup'){
       router.replace('/signin')
     }

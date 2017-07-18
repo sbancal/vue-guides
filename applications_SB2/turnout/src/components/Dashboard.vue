@@ -1,9 +1,11 @@
 <template lang="html">
   <div class="">
     <h1>Dashboard</h1>
-    <button class="btn btn-danger btn-sm" @click="signOut">Sign Out</button>
+    <div class="">
+      email : {{$store.state.user.email}}
+      <button class="btn btn-danger btn-sm" @click="signOut">Sign Out</button>
+    </div>
     <hr>
-    {{$store.state.user}}
   </div>
 </template>
 
