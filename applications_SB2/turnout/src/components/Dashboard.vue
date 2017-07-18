@@ -7,16 +7,26 @@
     </div>
     <hr>
     <AddEvent />
+    <hr>
+    <div class="col-md-12">
+      <EventItem
+        v-for="(event, index) in this.$store.state.events"
+        :event="event"
+        key="index"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import { firebaseApp, eventsRef } from '../firebaseApp'
 import AddEvent from './AddEvent.vue'
+import EventItem from './EventItem.vue'
 
 export default {
   components: {
-    AddEvent
+    AddEvent,
+    EventItem
   },
   methods: {
     signOut() {
