@@ -2,6 +2,8 @@
   <div class="">
     <h1>Dashboard</h1>
     <button class="btn btn-danger btn-sm" @click="signOut">Sign Out</button>
+    <hr>
+    {{$store.state.user}}
   </div>
 </template>
 

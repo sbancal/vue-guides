@@ -7,6 +7,7 @@ vue init webpack-simple turnout
 cd turnout
 npm install --save bootstrap
 npm install --save vue-router
+npm install --save vuex
 ```
 
 ## Build Setup
