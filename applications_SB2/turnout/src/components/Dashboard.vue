@@ -1,10 +1,10 @@
 <template lang="html">
   <div class="">
-    <h1>Dashboard</h1>
-    <div class="">
+    <div class="pull-right">
       email : {{$store.state.user.email}}
       <button class="btn btn-danger btn-sm" @click="signOut">Sign Out</button>
     </div>
+    <h1 class="clear-both">Dashboard</h1>
     <hr>
     <AddEvent />
     <hr>
@@ -49,4 +49,10 @@ export default {
 </script>
 
 <style lang="css">
+.pull-right {
+  margin-bottom: -20px;
+}
+.clear-both {
+  clear: both;
+}
 </style>

@@ -18,7 +18,7 @@
         <label>Location</label>
         <input type="text" class="form-control" v-model="event.location">
       </div>
-      <button class="btn-sm btn-primary" @click="addEvent">Add this event</button>
+      <button class="btn btn-sm btn-primary" @click="addEvent">Add this event</button>
     </div>
   </div>
 </template>
@@ -43,6 +43,11 @@ export default {
     addEvent() {
       this.event.email = this.$store.state.user.email
       eventsRef.push(this.event)
+      this.showForm = false
+      this.event.title = ''
+      this.event.description = ''
+      this.event.date = ''
+      this.event.location = ''
     }
   }
 }
