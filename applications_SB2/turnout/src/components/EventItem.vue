@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="col-md-4">
     <div class="event-card">
+      <button class="btn btn-sm btn-danger pull-right" @click="deleteEvent">x</button>
       <h4 class="card-title">{{event.title}}</h4>
       <p class="card-text">{{event.description}}</p>
       <ul class="list-group list-group-flush">
@@ -13,8 +14,15 @@
 </template>
 
 <script>
+import { eventsRef } from '../firebaseApp'
+
 export default {
-  props: ['event']
+  props: ['event'],
+  methods: {
+    deleteEvent() {
+      eventsRef.child(this.event.key).remove()
+    }
+  }
 }
 </script>
 

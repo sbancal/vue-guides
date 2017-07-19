@@ -37,7 +37,9 @@ export default {
     eventsRef.on('value', snap => {
       let events = []
       snap.forEach(event => {
-        events.push(event.val())
+        let oneEvent = event.val()
+        oneEvent.key = event.key
+        events.push(oneEvent)
       })
       console.log('set events', events)
       this.$store.dispatch('setEvents', events)
